@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Sign-Ups</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../asset/fly.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e9ecef;
+        }
+
+        tr:nth-child(even) {
+            background-color: #c1fd6e;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #009436;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Sign-Ups</h1>
+
+    <div class="controls">
+        <div>
+        <label for="clubFilter">Filter by Club:</label>
+        <select id="clubFilter" onchange="displaySignups()">
+            <option value="ALL">ALL</option>
+            <option value="AstroSoc">AstroSoc</option>
+            <option value="Likha">Likha</option>
+            <option value="Math Club">Math Club</option>
+            <option value="Bake Club">Bake Club</option>
+            <option value="Lagablab">Lagablab</option>
+            <option value="The Science Scholar">The Science Scholar</option>
+            <option value="Solace">Solace</option>
+        </select>
+        </div>
+
+        <div id="totalCount"></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Full Name</th>
+                <th>Grade Level</th>
+                <th>Status</th>
+                <th>Club</th>
+            </tr>
+        </thead>
+        <tbody id="signupTable"></tbody>
+    </table>
+
+    <p class="message" id="message"></p>
+
+    <a class="back-link" href="Q3_2GLiLorenzana.html">← Back to Sign-Up Page</a>
+
+</div>
+
+<script>
+function displaySignups() {
+    let data = JSON.parse(localStorage.getItem("signups"));
+    let table = document.getElementById("signupTable");
+    let filter = document.getElementById("clubFilter").value;
+    let message = document.getElementById("message");
+    let totalCount = document.getElementById("totalCount");
+
+    table.innerHTML = "";
+    message.textContent = "";
+    totalCount.textContent = "";
+
+    if (!data || data.length === 0) {
+        message.textContent = "No sign-ups have been recorded yet.";
+        return;
+    }
+
+    let total = 0;
+
+    data.forEach(signup => {
+        if (filter === "ALL" || signup.orgclub === filter) {
+            let row = table.insertRow();
+            row.insertCell(0).textContent = signup.studentID;
+            row.insertCell(1).textContent = signup.fullName;
+            row.insertCell(2).textContent = signup.gradeLevel;
+            row.insertCell(3).textContent = signup.status;
+            row.insertCell(4).textContent = signup.orgclub;
+            total++;
+        }
+    });
+
+    if (total === 0) {
+        message.textContent = "No sign-ups found for the selected club.";
+    }
+
+    totalCount.textContent = "Total Sign-Ups: " + total;
+}
+
+displaySignups();
+</script>
+
+</body>
+</html>

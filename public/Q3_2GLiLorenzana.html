@@ -14,74 +14,73 @@
 
 <body>
     
-<form method="post" action="submit"
-      onsubmit="return confirmSubmit()"
+<form onsubmit="return saveSignup()"
       onreset="return confirmReset()">
 
 <fieldset>
 <label>
     Student ID:
-    <input type="number" id="studentID" name="studentID" required onblur="checkEmpty('studentID')">
+    <input type="number" id="studentID" required onblur="checkEmpty('studentID')">
 </label>
 <br/><br/>
 <label>
     Full Name:
-    <input type="text" id="fullName" name="fullName" required onblur="checkEmpty('fullName')">
+    <input type="text" id="fullName" required onblur="checkEmpty('fullName')">
 </label>
 <br/><br/>
 <label>
     Birthday:
-    <input type="date" id="birthday" name="birthday" required onblur="checkEmpty('birthday')">
+    <input type="date" id="birthday" required onblur="checkEmpty('birthday')">
 </label>
 <br/><br/>
 <label>
     Email Address:
-    <input type="email" id="email" name="email" required onblur="checkEmpty('email')">
+    <input type="email" id="email" required onblur="checkEmpty('email')">
 </label>
 <br/><br/>
 
 <label>
     Mobile Phone:
-    <input type="text" id="mobilePhone" name="mobilePhone" required onblur="checkEmpty('mobilePhone')">
+    <input type="text" id="mobilePhone" required onblur="checkEmpty('mobilePhone')">
 </label>
 <br/><br/>
 
 <label>
     Grade Level:
-    <select name="gradeLevel" required>
-        <option value="g7">Grade 7</option>
-        <option value="g8">Grade 8</option>
-        <option value="g9">Grade 9</option>
-        <option value="g10">Grade 10</option>
-        <option value="g11">Grade 11</option>
-        <option value="g12">Grade 12</option>
+    <select id="gradeLevel" name="gradeLevel" required>
+        <option value="Grade 7">Grade 7</option>
+        <option value="Grade 8">Grade 8</option>
+        <option value="Grade 9">Grade 9</option>
+        <option value="Grade 10">Grade 10</option>
+        <option value="Grade 11">Grade 11</option>
+        <option value="Grade 12">Grade 12</option>
     </select>
 </label>
 <br/><br/>
 
-<label>
-    Intern/Extern:<br/>
+<label>Intern/Extern:</label><br>
+    <label class="radio-label">
         <input type="radio" name="status" value="intern" required>
             Intern
-        </label>
-        <br><br>
-        <label>
+    </label>
+    <br>
+    <label class="radio-label">
             <input type="radio" name="status" value="extern" required>
             Extern
-        </label>
-        <br><br>
+    </label>
+    <br><br>
     </label>
 
 <label>
     Preferred Organization/Club:<br/>
-    <select name="orgclub" required>
-        <option value="orgclub1">AstroSoc</option>
-        <option value="orgclub2">Likha</option>
-        <option value="orgclub3">Math Club</option>
-        <option value="orgclub4">Bake Club</option>
-        <option value="orgclub5">Lagablab</option>
-        <option value="orgclub6">The Science Scholar</option>
-        <option value="orgclub6">Solace</option>
+    <select id="orgclub" name="orgclub" required>
+        <option value="AstroSoc">AstroSoc</option>
+        <option value="Likha">Likha</option>
+        <option value="Math Club">Math Club</option>
+        <option value="Bake Club">Bake Club</option>
+        <option value="Lagablab">Lagablab</option>
+        <option value="The Science Scholar">The Science Scholar</option>
+        <option value="Solace">Solace</option>
     </select>
 </label><br/><br/>
 
@@ -94,6 +93,10 @@
 
     <input type="submit" value="Submit">
     <input type="reset" value="Reset">
+
+    <button type="button" onclick="window.location.href='viewSignUps.html'">
+    View Signups
+    </button>
 
     </form>
 

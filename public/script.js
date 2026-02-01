@@ -1,7 +1,3 @@
-function confirmSubmit() {
-    return confirm("Do you want to submit the form?");
-}
-
 function confirmReset() {
     return confirm("Do you want to reset all the fields?");
 }
@@ -15,4 +11,33 @@ function checkEmpty(id) {
     }else {
         document.getElementById(id).style.border = "1px solid black";
     }
+}
+
+function saveSignup() {
+    if (!confirm("Do you want to submit the form?")) {
+        return false;
+    }
+
+let signups = JSON.parse(localStorage.getItem("signups")) || [];
+
+let status = document.querySelector('input[name="status"]:checked').value;
+
+let signupData = {
+        studentID: document.getElementById("studentID").value,
+        fullName: document.getElementById("fullName").value,
+        birthday: document.getElementById("birthday").value,
+        email: document.getElementById("email").value,
+        mobilePhone: document.getElementById("mobilePhone").value,
+        gradeLevel: document.getElementById("gradeLevel").value,
+        status: status,
+        orgclub: document.getElementById("orgclub").value,
+        reason: document.getElementById("reason").value
+    };
+
+signups.push(signupData);
+localStorage.setItem("signups", JSON.stringify(signups));
+
+alert("Signup saved successfully!");
+
+return false;
 }

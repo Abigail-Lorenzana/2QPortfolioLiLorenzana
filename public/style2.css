@@ -16,3 +16,9 @@ select:focus {
     border: 3px solid rgb(30, 145, 86);
     outline: none;
 }
+
+.radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px; 
+}
