@@ -1,6 +1,8 @@
 body{
     font-family: Monospace, sans-serif;
     background-image: url('../asset/green.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container{
