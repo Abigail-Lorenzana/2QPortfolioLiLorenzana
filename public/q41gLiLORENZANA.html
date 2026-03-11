@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2Q Portfolio">
+    <meta name="keywords" content="2Q, Portfolio, Projects, Web Development">
+    <meta name="author" content="Abigail Lorenzana">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="icon" href="../asset/primogem.png" sizes="100x100" type="image/png"> 
+    <script src="script2.js" defer></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Add a Movie</h2>
+<form id="movie_form">
+    <label>Title:</label>
+    <input type="text" id="title" required>
+
+    <label>Year:</label>
+    <input type="text" id="year" required>
+
+    <label>Genre:</label>
+    <select id="genre">
+        <option>Romance</option>
+        <option>Comedy</option>
+        <option>Drama</option>
+        <option>Action</option>
+        <option>Horror</option>
+        <option>Sci-Fi</option>
+        <option>Slice of Life</option>
+        <option>Mystery</option>
+    </select>
+
+    <label>Rating:</label>
+    <br/>
+
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+
+    <br/><br/>
+
+    <button type="submit">Add Movie</button>
+</form>
+
+<h2>Movie List</h2>
+<div id="movieList"></div>
+
+</div>
+
+    <footer>
+        <hr/>
+            <p>Copyright <span>&copy; Abigail Lorenzana</span></p>
+    </footer>
+</body>
+</html>
