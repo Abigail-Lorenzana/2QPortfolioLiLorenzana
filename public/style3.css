@@ -1,6 +1,6 @@
 body{
     font-family: Monospace, sans-serif;
-    background:#81ffbe;
+    background-image: url('../asset/green.jpg');
 }
 
 .container{
@@ -59,4 +59,14 @@ button:hover{
 .movie{
     padding:10px;
     border-bottom:1px solid #ddd;
+}
+
+.movie button{
+    margin-left:10px;
+    padding:5px 10px;
+    background:rgb(255, 97, 97);
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
 }
