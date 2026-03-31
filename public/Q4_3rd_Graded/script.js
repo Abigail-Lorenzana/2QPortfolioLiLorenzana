@@ -1,8 +1,6 @@
 function plotPoint(x0, y0, x, y) {
     console.log(x0, y0, x, y) // checks the arguments passed to this function
-    
     document.getElementById("in1").innerHTML = x0 + " " + y0 + " " + x + " " + y;
-    
     var point = document.createElement('div');  
     point.className = 'point';
     /* control where to place the div on the screen using left and bottom of position:absolute */
