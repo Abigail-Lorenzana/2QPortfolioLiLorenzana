@@ -20,7 +20,8 @@ function saveSignup() {
 
 let signups = JSON.parse(localStorage.getItem("signups")) || [];
 
-let status = document.querySelector('input[name="status"]:checked').value;
+let statusElement = document.querySelector('input[name="status"]:checked');
+let status = statusElement ? statusElement.value : "";
 
 let signupData = {
         studentID: document.getElementById("studentID").value,
@@ -38,6 +39,8 @@ signups.push(signupData);
 localStorage.setItem("signups", JSON.stringify(signups));
 
 alert("Signup saved successfully!");
+
+document.querySelector("form").reset();
 
 return false;
 }
